@@ -1,0 +1,311 @@
+/* ============================================================
+   DESIGN SYSTEM: Dark Premium Finance
+   Philosophy: Bloomberg Terminal + Luxury PE Fund Aesthetic
+   Colors: Deep Dark #080C10, Gold Accent #D4A843, Off-White #E8EDF2
+   Typography: Cormorant Garamond (Display) + Inter (Body) + JetBrains Mono (Data)
+   ============================================================ */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-gold-dim: var(--gold-dim);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+:root {
+  --radius: 0.25rem;
+  /* Dark Premium Finance Palette */
+  --background: oklch(0.085 0.008 240);
+  --foreground: oklch(0.91 0.008 220);
+  --card: oklch(0.11 0.009 240);
+  --card-foreground: oklch(0.91 0.008 220);
+  --popover: oklch(0.11 0.009 240);
+  --popover-foreground: oklch(0.91 0.008 220);
+  --primary: oklch(0.72 0.12 75);
+  --primary-foreground: oklch(0.085 0.008 240);
+  --secondary: oklch(0.14 0.009 240);
+  --secondary-foreground: oklch(0.75 0.008 220);
+  --muted: oklch(0.16 0.008 240);
+  --muted-foreground: oklch(0.55 0.012 230);
+  --accent: oklch(0.72 0.12 75);
+  --accent-foreground: oklch(0.085 0.008 240);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 0.08);
+  --input: oklch(1 0 0 / 0.1);
+  --ring: oklch(0.72 0.12 75);
+  --gold: #D4A843;
+  --gold-dim: rgba(212, 168, 67, 0.15);
+  --sidebar: oklch(0.11 0.009 240);
+  --sidebar-foreground: oklch(0.91 0.008 220);
+  --sidebar-primary: oklch(0.72 0.12 75);
+  --sidebar-primary-foreground: oklch(0.085 0.008 240);
+  --sidebar-accent: oklch(0.14 0.009 240);
+  --sidebar-accent-foreground: oklch(0.91 0.008 220);
+  --sidebar-border: oklch(1 0 0 / 0.08);
+  --sidebar-ring: oklch(0.72 0.12 75);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+  h1, h2, h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 3rem;
+      padding-right: 3rem;
+      max-width: 1320px;
+    }
+  }
+
+  /* Gold accent line */
+  .gold-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #D4A843, transparent);
+  }
+
+  /* Gold text */
+  .text-gold {
+    color: #D4A843;
+  }
+
+  /* Section label style */
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #D4A843;
+  }
+
+  /* Display heading */
+  .display-heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 300;
+    line-height: 1.1;
+  }
+
+  /* Data number */
+  .data-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+  }
+
+  /* Card hover glow */
+  .card-glow:hover {
+    box-shadow: 0 0 30px rgba(212, 168, 67, 0.12), 0 8px 32px rgba(0, 0, 0, 0.4);
+    border-color: rgba(212, 168, 67, 0.3) !important;
+  }
+
+  /* Dot grid background */
+  .dot-grid {
+    background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* Fade in up animation */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger children */
+  .stagger-children > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .stagger-children.visible > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+  .stagger-children.visible > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+  .stagger-children.visible > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
+  .stagger-children.visible > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+  .stagger-children.visible > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
+  .stagger-children.visible > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
+}
+
+/* ============================================================
+   MULTILINGUAL ANNOTATION SYSTEM
+   Primary: English (Inter) | Secondary: Korean (Noto Sans KR) | Tertiary: Japanese (Noto Sans JP)
+   ============================================================ */
+
+  /* Multilingual label block — used under headings/labels */
+  .ml-annotation {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .ml-en {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: #8B95A1;
+  }
+  .ml-ko {
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: #6B7580;
+    letter-spacing: 0.02em;
+  }
+  .ml-ja {
+    font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 400;
+    color: #4A5560;
+    letter-spacing: 0.02em;
+  }
+
+  /* Inline multilingual — side by side */
+  .ml-inline {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .ml-inline .ml-ko,
+  .ml-inline .ml-ja {
+    font-size: 0.65rem;
+  }
+
+  /* ============================================================
+     UNIFIED TYPOGRAPHY SCALE
+     ============================================================ */
+
+  /* Section heading — all sections use this */
+  .section-heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+    line-height: 1.15;
+    color: #E8EDF2;
+    letter-spacing: -0.01em;
+  }
+
+  /* Body text — all body copy uses this */
+  .body-text {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    color: #9BA5B0;
+  }
+
+  /* Card title */
+  .card-title {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    letter-spacing: 0.03em;
+    color: #E8EDF2;
+  }
+
+  /* Card body */
+  .card-body {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 0.8125rem;
+    line-height: 1.7;
+    color: #7A8490;
+  }
+
+  /* Unified card height for entity cards */
+  .entity-card {
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+  }
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #080C10;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 168, 67, 0.3);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 168, 67, 0.6);
+}
+
+/* Selection */
+::selection {
+  background: rgba(212, 168, 67, 0.2);
+  color: #E8EDF2;
+}
